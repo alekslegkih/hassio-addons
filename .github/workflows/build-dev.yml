@@ -3,9 +3,10 @@ name: Nextcloud User Files Backup Dev
 on:
   push:
     branches: [develop]
+    tags: ['dev-v*'] 
 
 jobs:
-  build-and-publish-dev:
+  build-and-publish:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -13,18 +14,31 @@ jobs:
       
     strategy:
       matrix:
-        arch: [aarch64, amd64, armv7]
+        arch: [aarch64, amd64, armv7]  
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Debug file structure
+    - name: Extract version
+      id: version
       run: |
-        echo "Files in repo:"
+        if [[ ${{ github.ref }} == refs/tags/dev-v* ]]; then
+          VERSION="${GITHUB_REF#refs/tags/dev-v}"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+        else
+          # Берем версию из dev config.yaml
+          VERSION=$(grep -oP 'version:\s*"\K[^"]+' ./nc_user_files_backup_dev/config.yaml)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+        fi
+        echo "Building DEV version: $VERSION"
+
+    - name: Debug structure
+      run: |
+        echo "Repo structure:"
         ls -la
-        echo "Files in dev folder:"
-        ls -la nc_user_files_backup_dev/  # ← ИСПРАВЛЕНО!
+        echo "Dev folder contents:"
+        ls -la nc_user_files_backup_dev/
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
@@ -39,30 +53,28 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build and push dev image
+    - name: Build and push
       uses: docker/build-push-action@v5
       with:
         context: ./nc_user_files_backup_dev 
         platforms: linux/${{ matrix.arch }}
         push: true
         tags: |
-          ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-${{ matrix.arch }}:0.0.1
+          ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-${{ matrix.arch }}:${{ env.VERSION }}
           ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-${{ matrix.arch }}:latest
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
 
-    - name: Verify pushed images
+    - name: Verify images
       run: |
-        echo "✅ Build completed! Checking pushed images..."
+        echo "✅ Build completed! Verifying images..."
         for arch in aarch64 amd64 armv7; do
-          echo "Checking nc_user_files_backup_dev-${arch}:"
-          curl -s "https://ghcr.io/v2/alekslegkih/nc_user_files_backup_dev-${arch}/tags/list" | jq . || echo "Image not found or access denied"
+          echo "Checking nc_user_files_backup_dev-${arch}:${{ env.VERSION }}"
+          curl -s "https://ghcr.io/v2/${{ github.repository_owner }}/nc_user_files_backup_dev-${arch}/tags/list" | jq . 2>/dev/null || echo "Not accessible yet"
         done
 
     - name: Completion message
       run: |
-        echo "🎉 Dev version 0.0.1 built successfully!"
+        echo "🎉 DEV Version ${{ env.VERSION }} built successfully!"
         echo "📦 Images pushed to:"
-        echo "   ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-aarch64:0.0.1"
-        echo "   ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-amd64:0.0.1" 
-        echo "   ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-armv7:0.0.1"
+        echo "   ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-aarch64:${{ env.VERSION }}"
+        echo "   ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-amd64:${{ env.VERSION }}"
+        echo "   ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-armv7:${{ env.VERSION }}"

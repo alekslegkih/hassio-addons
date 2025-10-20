@@ -22,8 +22,3 @@ __pycache__/
 .idea/
 *.swp
 *.swo
-
-# Скрипты для разработки (не для пользователей)
-bump-version.bat
-bump-version.ps1
-bump-version.sh

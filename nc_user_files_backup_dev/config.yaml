@@ -1,6 +1,6 @@
 name: "Nextcloud User Files Backup Dev"
 description: "Backup Nextcloud user files to external USB drive"
-version: "0.0.1"
+version: "0.0.2"
 slug: "nc_user_files_backup_dev"
 url: "https://github.com/alekslegkih/nc_user_files_backup_dev"
 arch:
