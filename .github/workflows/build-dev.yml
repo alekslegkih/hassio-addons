@@ -24,7 +24,7 @@ jobs:
         echo "Files in repo:"
         ls -la
         echo "Files in dev folder:"
-        ls -la nc_user_files_backup-dev/
+        ls -la nc_user_files_backup_dev/
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
