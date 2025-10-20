@@ -46,8 +46,8 @@ jobs:
         platforms: linux/${{ matrix.arch }}
         push: true
         tags: |
-          ghcr.io/${{ github.repository_owner }}/nc_user_files_backup-dev-${{ matrix.arch }}:0.0.1
-          ghcr.io/${{ github.repository_owner }}/nc_user_files_backup-dev-${{ matrix.arch }}:latest
+          ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-${{ matrix.arch }}:0.0.1
+          ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-${{ matrix.arch }}:latest
 
     - name: Completion message
       run: echo "Dev version 0.0.1 built for ${{ matrix.arch }}!"
