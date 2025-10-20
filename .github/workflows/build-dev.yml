@@ -3,8 +3,6 @@ name: Nextcloud User Files Backup Dev
 on:
   push:
     branches: [develop]
-  pull_request:
-    branches: [develop]
 
 jobs:
   build-and-publish-dev:
@@ -20,6 +18,13 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+
+    - name: Debug file structure
+      run: |
+        echo "Files in repo:"
+        ls -la
+        echo "Files in dev folder:"
+        ls -la nc_user_files_backup-dev/
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
@@ -37,7 +42,7 @@ jobs:
     - name: Build and push dev image
       uses: docker/build-push-action@v5
       with:
-        context: ./nc_user_files_backup
+        context: ./nc_user_files_backup-dev
         platforms: linux/${{ matrix.arch }}
         push: true
         tags: |
