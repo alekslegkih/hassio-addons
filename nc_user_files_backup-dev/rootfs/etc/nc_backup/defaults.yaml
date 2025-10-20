@@ -18,14 +18,13 @@ general:
   test_mode: false
 
 storage:
-  mount_path: "media"
   label_backup: "NC_backup"
   label_data: "Data"
   data_dir: "data"
 
 power:
-  enable_power: true
-  disc_switch: "0xa4c1386d8f18e006"
+  enable_power: false  # По умолчанию выключаем, т.к. теперь монтирование через local_mounts
+  disc_switch: "usb_disk_power"
 
 notifications:
   enable_notifications: true
