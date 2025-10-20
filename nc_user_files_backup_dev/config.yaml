@@ -6,7 +6,8 @@ url: "https://github.com/alekslegkih/nc_user_files_backup_dev"
 arch:
   - aarch64
   - amd64
-  - armv7
+  - armhf
+
 image: "ghcr.io/alekslegkih/nc_user_files_backup_dev-{arch}"
 startup: once
 boot: manual
