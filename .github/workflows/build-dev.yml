@@ -42,7 +42,7 @@ jobs:
     - name: Build and push dev image
       uses: docker/build-push-action@v5
       with:
-        context: ./nc_user_files_backup_dev  # ← ИСПРАВЛЕНО!
+        context: ./nc_user_files_backup_dev 
         platforms: linux/${{ matrix.arch }}
         push: true
         tags: |
