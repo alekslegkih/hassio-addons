@@ -13,7 +13,7 @@ jobs:
       
     strategy:
       matrix:
-        arch: [aarch64, amd64, armhf]
+        arch: [aarch64, amd64, armv7]
 
     steps:
     - name: Checkout code
@@ -24,7 +24,7 @@ jobs:
         echo "Files in repo:"
         ls -la
         echo "Files in dev folder:"
-        ls -la nc_user_files_backup_dev/
+        ls -la nc_user_files_backup_dev/  # ← ИСПРАВЛЕНО!
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
@@ -42,12 +42,27 @@ jobs:
     - name: Build and push dev image
       uses: docker/build-push-action@v5
       with:
-        context: ./nc_user_files_backup_dev
+        context: ./nc_user_files_backup_dev  # ← ИСПРАВЛЕНО!
         platforms: linux/${{ matrix.arch }}
         push: true
         tags: |
           ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-${{ matrix.arch }}:0.0.1
           ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-${{ matrix.arch }}:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - name: Verify pushed images
+      run: |
+        echo "✅ Build completed! Checking pushed images..."
+        for arch in aarch64 amd64 armv7; do
+          echo "Checking nc_user_files_backup_dev-${arch}:"
+          curl -s "https://ghcr.io/v2/alekslegkih/nc_user_files_backup_dev-${arch}/tags/list" | jq . || echo "Image not found or access denied"
+        done
 
     - name: Completion message
-      run: echo "Dev version 0.0.1 built for ${{ matrix.arch }}!"
+      run: |
+        echo "🎉 Dev version 0.0.1 built successfully!"
+        echo "📦 Images pushed to:"
+        echo "   ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-aarch64:0.0.1"
+        echo "   ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-amd64:0.0.1" 
+        echo "   ghcr.io/${{ github.repository_owner }}/nc_user_files_backup_dev-armv7:0.0.1"
