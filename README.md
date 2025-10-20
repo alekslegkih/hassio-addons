@@ -16,4 +16,4 @@ https://github.com/alekslegkih/hassio-addons
 После добавления репозитория в списке дополнений появятся доступные аддоны.
 
 ## Список аддонов в этом репозитории
-[Nextcloud User Files Backup](https://github.com/alekslegkih/nc_user_files_backup/tree/main/nc_user_files_backup) — Аддон предназначен для автоматического создания резервных копий файлов пользователей Nextcloud на внешний USB-диск.
+[Nextcloud User Files Backup](https://github.com/alekslegkih/hassio-addons/tree/main/nc_user_files_backup) — Аддон предназначен для автоматического создания резервных копий файлов пользователей Nextcloud на внешний USB-диск.
