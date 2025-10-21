@@ -11,23 +11,14 @@ else
     exit 1
 fi
 
-# Load configuration
-if [ -f /etc/nc_backup/config.sh ]; then
-    source /etc/nc_backup/config.sh
-else
-    bashio::log.error "Config file not found: /etc/nc_backup/config.sh"
+# Конфигурация уже загружена через /etc/cont-init.d/10-load-config.sh
+# Проверяем что основные переменные установлены
+if [ -z "${TIMEZONE:-}" ]; then
+    bashio::log.error "Configuration not loaded. TIMEZONE is empty"
     exit 1
 fi
 
-load_config
-CONFIG_EXIT_CODE=$?
-
-if [ $CONFIG_EXIT_CODE -eq 2 ]; then
-    exit 0
-elif [ $CONFIG_EXIT_CODE -ne 0 ]; then
-    bashio::log.error "Failed to load configuration"
-    exit 1
-fi
+bashio::log.info "Configuration verified, starting backup..."
 
 # Start main backup script
 exec /usr/local/bin/backup.sh
