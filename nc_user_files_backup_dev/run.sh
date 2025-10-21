@@ -11,14 +11,23 @@ else
     exit 1
 fi
 
-# Конфигурация уже загружена через /etc/cont-init.d/10-load-config.sh
-# Проверяем что основные переменные установлены
-if [ -z "${TIMEZONE:-}" ]; then
-    bashio::log.error "Configuration not loaded. TIMEZONE is empty"
+# Load configuration from cont-init script
+if [ -f /etc/cont-init.d/10-load-config.sh ]; then
+    bashio::log.info "Loading configuration..."
+    # Source the configuration script to set variables
+    source /etc/cont-init.d/10-load-config.sh
+else
+    bashio::log.error "Configuration script not found"
     exit 1
 fi
 
-bashio::log.info "Configuration verified, starting backup..."
+# Check if configuration was loaded
+if [ -z "${TIMEZONE:-}" ]; then
+    bashio::log.error "Configuration failed to load. TIMEZONE is empty"
+    exit 1
+fi
+
+bashio::log.info "Configuration loaded successfully, starting backup..."
 
 # Start main backup script
 exec /usr/local/bin/backup.sh
