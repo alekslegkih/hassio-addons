@@ -1,6 +1,13 @@
-#!/usr/bin/with-contenv bashio
-# shellcheck shell=bash
+#!/bin/bash
 set -e
+
+# Load bashio
+if [ -f /usr/lib/bashio/bashio.sh ]; then
+    source /usr/lib/bashio/bashio.sh
+else
+    echo "Bashio not available"
+    exit 0
+fi
 
 # Based on 00-local_mounts.sh from https://github.com/alexbelgium/hassio-addons  
 # Copyright (c) alexbelgium, MIT License

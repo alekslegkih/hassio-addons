@@ -1,5 +1,13 @@
-#!/usr/bin/with-contenv bashio
+#!/bin/bash
 set -e
+
+# Load bashio
+if [ -f /usr/lib/bashio/bashio.sh ]; then
+    source /usr/lib/bashio/bashio.sh
+else
+    echo "Bashio not available"
+    exit 1
+fi
 
 # Load logging functions
 source /etc/nc_backup/logging.sh
