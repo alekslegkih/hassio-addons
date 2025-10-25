@@ -97,8 +97,8 @@ sudo e2label /dev/sdb2 NC_backup
 | `enable_power` | bool | `true` | Включать управление питанием диска |
 | `disc_switch` | str | `usb_disk_power` | Сущность выключателя питания диска без указания домена switch |
 | `notifications.` | | | Секция управления сообщениями|
-| `enable_notifications` | bool | `true` | Включать управление питанием диска |
-| `notification_service` | str | `usb_disk_power` | Сущность выключателя питания диска без указания домена switch |
+| `enable_notifications` | bool | `true` | Включать отправку сообщений |
+| `notification_service` | str | `notify.send_message` | Значение сервиса отправки |
 | `success_message` | str | `Nextcloud user files backup completed successfully!` | Сообщение об успехе копирования |
 | `error_message` | str | `Nextcloud backup completed with errors!` | Сообщение об ошибке копирования |
 
