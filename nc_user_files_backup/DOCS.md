@@ -36,7 +36,7 @@ https://github.com/alekslegkih/nc_user_files_backup
 > Так как HAOS не позволяет работать с USB дисками напрямую, вы должны примонтировать их к системе.  
 > Так же необходимо присвоить метки примонтированным разделам. Метки используются в конфигурации.
 
-Для копирования правила для монтирвоания дисков в систему супервизора, вам необходимо получить доступ по ssh. Проще всего это сделать с помощью дополнения.
+Для копирования правила для монтирвоания дисков в систему супервизора, вам необходимо получить доступ по ssh. Проще всего это сделать с помощью дополнения от https://github.com/adamoutler.
 
 [![Добавить "HassOS SSH port 22222" в Home Assistant](https://img.shields.io/badge/Добавить%20%22HassOS%20SSH%20port%2022222%22%20в-Home%20Assistant-blue?logo=home-assistant&logoColor=white&labelColor=41B3A3)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https://github.com/adamoutler/HassOSConfigurator)  
 После получения доступа к системе, подключите диски и присвойте им метки. В дальнейшем вам необходимо будет указать эти метки в конфигурации.
