@@ -1,0 +1,6 @@
+MD033:
+  allowed_elements: ["kbd", "br"]
+MD013:
+  line_length: 80
+  tables: false      # ← разрешает длинные строки в таблицах
+  code_blocks: false # ← (опционально) разрешает длинные строки в коде  
