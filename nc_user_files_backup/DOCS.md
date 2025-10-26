@@ -18,7 +18,7 @@
 
 Чтобы добавить этот репозиторий в Home Assistant, нажмите кнопку ниже:
 
-[![Добавить в Home Assistant](https://img.shields.io/badge/Добавить%20в-Home%20Assistant-blue?logo=home-assistant&logoColor=white&labelColor=41B3A3)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https://github.com/alekslegkih/nc_user_files_backup)
+[![Добавить в Home Assistant](https://img.shields.io/badge/Добавить%20в-Home%20Assistant-blue?logo=home-assistant&logoColor=white&labelColor=41B3A3)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https://github.com/alekslegkih/hassio-addons)
 
 > [!TIP]
 > Если автоматическая кнопка не работает,
@@ -35,7 +35,7 @@
 В появившемся окне вставьте ссылку на этот репозиторий и нажмите <kbd>Добавить</kbd>:
 
 ```htm
-https://github.com/alekslegkih/nc_user_files_backup
+https://github.com/alekslegkih/hassio-addons
 ```
 
 ## Конфигурация
