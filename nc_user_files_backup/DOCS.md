@@ -1,42 +1,4 @@
-# Аддон Nextcloud User Files Backup
-
-Аддон предназначен для автоматического создания резервных копий
-файлов пользователей Nextcloud на внешний USB-диск.
-Для работы требуется предварительная настройка монтирования дисков
-через правила udev и наличие долгоживущего токена доступа Home Assistant.
-
-- ✅ **Автоматическое управление дисками**
-- ✅ **Управление питанием через умные выключатели**
-- ✅ **Инкрементное резервное копирование через rsync**
-- ✅ **Гибкие уведомления** (Telegram, Signal, мобильные и т.д.)
-- ✅ **Валидация конфигурации**
-- ✅ **Тестовый режим для безопасной проверки**
-
-## Установка
-
-### Автоматическая установка (рекомендуется)
-
-Чтобы добавить этот репозиторий в Home Assistant, нажмите кнопку ниже:
-
-[![Добавить в Home Assistant](https://img.shields.io/badge/Добавить%20в-Home%20Assistant-blue?logo=home-assistant&logoColor=white&labelColor=41B3A3)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https://github.com/alekslegkih/nc_user_files_backup)
-
-> [!TIP]
-> Если автоматическая кнопка не работает,
-> следуйте официальной документации по установке сторонних аддонов.
-
-[![Официальная документация](https://img.shields.io/badge/Официальная%20документация-Home%20Assistant-blue?logo=home-assistant&logoColor=white&labelColor=41B3A3)](https://www.home-assistant.io/common-tasks/os#installing-a-third-party-add-on-repository)
-
-### Ручная установка
-
-В веб-интерфейсе Home Assistant перейдите в раздел <kbd>Супервизор</kbd> ->
-<kbd>Магазин дополнений</kbd>.  
-В правом верхнем углу нажмите на меню с тремя точками <kbd>...</kbd>
-и выберите пункт <kbd>Репозитории</kbd>.  
-В появившемся окне вставьте ссылку на этот репозиторий и нажмите <kbd>Добавить</kbd>:
-
-```htm
-https://github.com/alekslegkih/nc_user_files_backup
-```
+# Nextcloud User Files Backup
 
 ## Конфигурация
 
@@ -51,7 +13,7 @@ https://github.com/alekslegkih/nc_user_files_backup
 Проще всего это сделать с помощью дополнения «HassOS SSH port 22222» от Adam Outler.
 
 [![Добавить "HassOS SSH port 22222" в Home Assistant](https://img.shields.io/badge/Добавить%20%22HassOS%20SSH%20port%2022222%22%20в-Home%20Assistant-blue?logo=home-assistant&logoColor=white&labelColor=41B3A3)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https://github.com/adamoutler/HassOSConfigurator)  
-После получения доступа к системе, подключите диски и присвойте им метки.
+После получения доступа к системе, подключите диски и присвойте им метки.  
 В дальнейшем вам необходимо будет указать эти метки в конфигурации.  
 Пример:
 
