@@ -25,7 +25,7 @@ storage:
 
 power:
   enable_power: true
-  disc_switch: "0xa4c1386d8f18e006"
+  disc_switch: "usb_disk_power"
 
 notifications:
   enable_notifications: true

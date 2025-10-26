@@ -189,6 +189,5 @@ load_config() {
     
     log "Configuration loaded successfully"
 
-
     return 0
 }

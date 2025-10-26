@@ -94,13 +94,13 @@ sudo e2label /dev/sdb2 NC_backup
 | `label_data` | str | `Data` | Метка диска с данными |
 | `data_dir` | str | `data` | Директория данных Nextcloud |
 | `power.` | | | Секция управления питанием диска|
-| `enable_power` | bool | `true` | Включать управление питанием диска |
+| `enable_power` | bool | `true` | Включить управление питанием диска |
 | `disc_switch` | str | `usb_disk_power` | Сущность выключателя питания диска без указания домена switch |
 | `notifications.` | | | Секция управления сообщениями|
-| `enable_notifications` | bool | `true` | Включать отправку сообщений |
+| `enable_notifications` | bool | `true` | Включить отправку сообщений |
 | `notification_service` | str | `notify.send_message` | Значение сервиса отправки |
-| `success_message` | str | `Nextcloud user files backup completed successfully!` | Сообщение об успехе копирования |
-| `error_message` | str | `Nextcloud backup completed with errors!` | Сообщение об ошибке копирования |
+| `success_message` | str | `Nextcloud user files backup completed successfully!` | Сообщение об успехе |
+| `error_message` | str | `Nextcloud backup completed with errors!` | Сообщение об ошибке |
 
 ### Примерная конфигурация
 
