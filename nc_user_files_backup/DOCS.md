@@ -51,7 +51,7 @@ https://github.com/alekslegkih/hassio-addons
 Проще всего это сделать с помощью дополнения «HassOS SSH port 22222» от Adam Outler.
 
 [![Добавить "HassOS SSH port 22222" в Home Assistant](https://img.shields.io/badge/Добавить%20%22HassOS%20SSH%20port%2022222%22%20в-Home%20Assistant-blue?logo=home-assistant&logoColor=white&labelColor=41B3A3)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https://github.com/adamoutler/HassOSConfigurator)  
-После получения доступа к системе, подключите диски и присвойте им метки.
+После получения доступа к системе, подключите диски и присвойте им метки.  
 В дальнейшем вам необходимо будет указать эти метки в конфигурации.  
 Пример:
 
