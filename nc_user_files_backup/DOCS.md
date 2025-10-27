@@ -10,7 +10,7 @@
 
 Для копирования правила для монтирвоания дисков в систему супервизора,
 вам необходимо получить доступ по ssh.
-Проще всего это сделать с помощью дополнения «HassOS SSH port 22222» от Adam Outler.
+Проще всего это сделать с помощью дополнения «HassOS SSH port 22222» от [Adam Outler](https://github.com/adamoutler).
 
 [![Добавить "HassOS SSH port 22222" в Home Assistant](https://img.shields.io/badge/Добавить%20%22HassOS%20SSH%20port%2022222%22%20в-Home%20Assistant-blue?logo=home-assistant&logoColor=white&labelColor=41B3A3)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https://github.com/adamoutler/HassOSConfigurator)  
 После получения доступа к системе, подключите диски и присвойте им метки.  
@@ -21,9 +21,9 @@
 sudo e2label /dev/sdb2 NC_backup
 ```
 
-Диски можнно примонтировать к системе при помощи
+Автор использует для монтирования дисков к системе 
 [решения по автоматическому монтированию дисков](https://gist.github.com/microraptor/be170ea642abeb937fc030175ae89c0c)
-от автора [microraptor](https://gist.github.com/microraptor)  
+от [microraptor](https://gist.github.com/microraptor)  
 Следуйте настройке указаном в правиле, по монтированию при помощи меток.
 
 ### Настройки аддона
