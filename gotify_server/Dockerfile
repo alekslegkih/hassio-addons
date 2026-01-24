@@ -1,10 +1,12 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/home-assistant:stable
-FROM $BUILD_FROM
+FROM ${BUILD_FROM}
 
 # Gotify из Alpine testing
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk update && \
-    apk add --no-cache gotify
+    apk add --no-cache \
+        gotify \
+        mc
 
 # Создаем симлинки
 RUN mkdir -p /config /data /addon_configs /var/lib/gotify
