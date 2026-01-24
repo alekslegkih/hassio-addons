@@ -7,8 +7,6 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposi
         gotify \
         mc
 
-# RUN mkdir -p /config /data /addon_configs /var/lib/gotify
-
 COPY run.sh /
 RUN chmod +x /run.sh
 
