@@ -16,12 +16,4 @@ ports:
   80/tcp: 8486
 ports_description:
   8486/tcp: Web interface and API
-options:
-  ssl: false
-  certfile: fullchain.pem
-  keyfile: privkey.pem
-schema:
-  ssl: bool
-  certfile: str
-  keyfile: str
 webui: "http://[HOST]:[PORT:8486]"

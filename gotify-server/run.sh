@@ -8,7 +8,7 @@ LOG_FILE="$CONFIG_DIR/gotify.log"
 CONFIG_FILE="$CONFIG_DIR/config.yml"
 DB_FILE="$CONFIG_DIR/gotify.db"
 IMAGES_DIR="$CONFIG_DIR/images"
-DEFAULT_ICON_URL="https://raw.githubusercontent.com/gotify/server/master/ui/public/static/defaultapp.png  "
+DEFAULT_ICON_URL="https://raw.githubusercontent.com/gotify/server/master/ui/public/static/defaultapp.png"
 DEFAULT_ICON="$IMAGES_DIR/defaultapp.png"
 
 log() {
@@ -69,8 +69,9 @@ fi
 log_section "System Information"
 log "Gotify version: $(/usr/bin/gotify-server --version 2>/dev/null | head -1 || echo 'unknown')"
 log "Database size: $(du -h "$DB_FILE" 2>/dev/null | cut -f1 2>/dev/null || echo '0B')"
-log "Number of files in images/: $(ls -1 "$IMAGES_DIR" 2>/dev/null | wc -l)"
-log "Port mapping: 80 → 8486 (external)"
+log "Number of files in images/: $(find "$IMAGES_DIR" -type f 2>/dev/null | wc -l)"
+log "Gotify listens on container port 80"
+log "Home Assistant maps it to external port 8486"
 
 log_section "Launching Gotify Server"
 log "Command: /usr/bin/gotify-server --config=\"$CONFIG_FILE\""
