@@ -4,8 +4,7 @@ FROM ${BUILD_FROM}
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk update && \
     apk add --no-cache \
-        gotify \
-        mc
+        gotify
 
 COPY run.sh /
 RUN chmod +x /run.sh
