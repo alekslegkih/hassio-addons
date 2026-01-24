@@ -1,13 +1,14 @@
 #!/bin/sh
+# Gotify - используем путь через homeassistant симлинк
 
-CONFIG_DIR="/addon_configs/gotify_server"
+CONFIG_DIR="/config/addon_configs/dc0b8324_gotify_server"
 CONFIG_FILE="$CONFIG_DIR/config.yml"
 DB_FILE="$CONFIG_DIR/gotify.db"
 IMAGES_DIR="$CONFIG_DIR/images"
 
 mkdir -p "$IMAGES_DIR"
 
-# Конфиг (если нет)
+# Конфиг
 if [ ! -f "$CONFIG_FILE" ]; then
     cat > "$CONFIG_FILE" << EOF
 server:
@@ -18,19 +19,17 @@ database:
   dialect: sqlite3
   connection: "$DB_FILE"
 EOF
-    echo "Config created: $CONFIG_FILE"
+    echo "Config created in HA addon_configs"
 fi
 
-# Иконка (если нет)
+# Иконка
 if [ ! -f "$IMAGES_DIR/defaultapp.png" ]; then
     echo "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" | \
         base64 -d > "$IMAGES_DIR/defaultapp.png"
-    echo "Default icon created"
 fi
 
-# Проверяем что есть
-echo "=== Current state ==="
+echo "=== Using HA addon_configs path ==="
+echo "Config: $CONFIG_FILE"
 ls -la "$CONFIG_DIR/"
-echo "====================="
 
 exec /usr/bin/gotify-server --config="$CONFIG_FILE"
