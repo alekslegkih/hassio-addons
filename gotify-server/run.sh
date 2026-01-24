@@ -3,7 +3,6 @@
 
 set -e
 
-# === КОНСТАНТЫ ===
 CONFIG_DIR="/config"
 LOG_FILE="$CONFIG_DIR/gotify.log"
 CONFIG_FILE="$CONFIG_DIR/config.yml"
@@ -12,7 +11,6 @@ IMAGES_DIR="$CONFIG_DIR/images"
 DEFAULT_ICON_URL="https://raw.githubusercontent.com/gotify/server/master/ui/public/static/defaultapp.png"
 DEFAULT_ICON="$IMAGES_DIR/defaultapp.png"
 
-# === ФУНКЦИИ ЛОГИРОВАНИЯ ===
 log() {
     local timestamp=$(date '+%Y-%m-%d %H:%M:%S')
     local message="[GOTIFY] $timestamp $1"
@@ -20,40 +18,37 @@ log() {
 }
 
 log_section() {
-    log "========================================="
+    log "========================================"
     log "$1"
-    log "========================================="
+    log "========================================"
 }
 
-# === НАЧАЛО ===
-log_section "Запуск Gotify Add-on"
+log_section "Starting Gotify Server Add-on"
 
-# === ПРОВЕРКА И СОЗДАНИЕ СТРУКТУРЫ ===
-log "Создание структуры каталогов..."
+log "Initializing directories..."
 mkdir -p "$IMAGES_DIR"
-log "Каталоги созданы:"
-log "  Конфиг:     $CONFIG_DIR"
-log "  База:       $DB_FILE"
-log "  Иконки:     $IMAGES_DIR"
-log "  Логи:       $LOG_FILE"
 
-# === ДЕФОЛТНАЯ ИКОНКА ===
+log "Configuration paths:"
+log "  • Config:      $CONFIG_FILE"
+log "  • Database:    $DB_FILE"
+log "  • Images:      $IMAGES_DIR"
+log "  • Logs:        $LOG_FILE"
+
 if [ ! -f "$DEFAULT_ICON" ]; then
-    log "Загрузка дефолтной иконки..."
-    if wget -q "$DEFAULT_ICON_URL" -O "$DEFAULT_ICON"; then
-        log "Иконка загружена: $DEFAULT_ICON"
+    log "Downloading default application icon..."
+    if wget -q --timeout=10 "$DEFAULT_ICON_URL" -O "$DEFAULT_ICON"; then
+        log "✓ Icon downloaded successfully"
     else
-        log "ВНИМАНИЕ: Не удалось загрузить иконку, создаем пустую"
+        log "⚠  Failed to download icon, creating empty placeholder"
         echo "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" | \
-            base64 -d > "$DEFAULT_ICON" || true
+            base64 -d > "$DEFAULT_ICON"
     fi
 else
-    log "Иконка уже существует: $DEFAULT_ICON"
+    log "✓ Icon already exists"
 fi
 
-# === ДЕФОЛТНЫЙ КОНФИГ ===
 if [ ! -f "$CONFIG_FILE" ]; then
-    log "Создание конфигурации по умолчанию..."
+    log "Creating default configuration..."
     cat > "$CONFIG_FILE" << EOF
 server:
   listenaddr: "0.0.0.0"
@@ -61,32 +56,36 @@ server:
   uploadedimagesdir: "$IMAGES_DIR"
   responseheaders:
     X-Frame-Options: "DENY"
+  cors:
+    alloworigins:
+      - "*"
+    allowmethods:
+      - "GET"
+      - "POST"
+      - "OPTIONS"
   log:
     level: info
 database: 
   dialect: sqlite3
   connection: "$DB_FILE"
+# Users are created via web interface
 EOF
-    log "Конфиг создан: $CONFIG_FILE"
+    log "✓ Configuration created"
 else
-    log "Используется существующий конфиг: $CONFIG_FILE"
+    log "✓ Using existing configuration"
 fi
 
-# === ИНФОРМАЦИЯ О СИСТЕМЕ ===
-log_section "Информация о системе"
-log "Версия Gotify: $(/usr/bin/gotify-server --version 2>/dev/null | head -1 || echo 'unknown')"
-log "Размер базы: $(du -h "$DB_FILE" 2>/dev/null | cut -f1 2>/dev/null || echo '0B')"
-log "Файлов в images/: $(ls -1 "$IMAGES_DIR" 2>/dev/null | wc -l)"
-log "Порт: 80 → 8486 (наружу)"
+log_section "System Information"
+log "Gotify version: $(/usr/bin/gotify-server --version 2>/dev/null | grep -o 'version [0-9.]\+' || echo 'unknown')"
+log "Database size: $(du -h "$DB_FILE" 2>/dev/null | cut -f1 || echo 'not created')"
+log "Icons count: $(find "$IMAGES_DIR" -type f -name '*.png' 2>/dev/null | wc -l)"
+log "Port mapping: 80 → 8486"
 
-# === ЗАПУСК ===
-log_section "Запуск Gotify Server"
-log "Команда: /usr/bin/gotify-server --config=\"$CONFIG_FILE\""
+log_section "Starting Server"
 log "Web UI: http://[HOST]:[PORT:8486]"
-log "Логи будут дублироваться в: $LOG_FILE"
+log "External URL: https://iot.alsite.ru"
+log "All logs duplicated to: $LOG_FILE"
 
-# Захватываем сигналы для чистого завершения
-trap 'log "Получен сигнал завершения"; exit 0' TERM INT
+trap 'log "Received termination signal"; exit 0' TERM INT
 
-# Запускаем Gotify с логированием в файл
 exec /usr/bin/gotify-server --config="$CONFIG_FILE" 2>&1 | tee -a "$LOG_FILE"
