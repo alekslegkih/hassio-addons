@@ -1,7 +1,7 @@
 #!/bin/sh
 # Gotify - используем путь через homeassistant симлинк
 
-CONFIG_DIR="/config/addon_configs/dc0b8324_gotify_server"
+CONFIG_DIR="/config/"
 CONFIG_FILE="$CONFIG_DIR/config.yml"
 DB_FILE="$CONFIG_DIR/gotify.db"
 IMAGES_DIR="$CONFIG_DIR/images"
