@@ -25,17 +25,12 @@ log_section() {
     log "========================================="
 }
 
-die() {
-    log "ОШИБКА: $1"
-    exit 1
-}
-
 # === НАЧАЛО ===
 log_section "Запуск Gotify Add-on"
 
 # === ПРОВЕРКА И СОЗДАНИЕ СТРУКТУРЫ ===
 log "Создание структуры каталогов..."
-mkdir -p "$IMAGES_DIR" || die "Не удалось создать $IMAGES_DIR"
+mkdir -p "$IMAGES_DIR"
 log "Каталоги созданы:"
 log "  Конфиг:     $CONFIG_DIR"
 log "  База:       $DB_FILE"
@@ -71,24 +66,17 @@ server:
 database: 
   dialect: sqlite3
   connection: "$DB_FILE"
-# Пользователи создаются через веб-интерфейс
 EOF
     log "Конфиг создан: $CONFIG_FILE"
 else
     log "Используется существующий конфиг: $CONFIG_FILE"
 fi
 
-# === ПРОВЕРКА КОНФИГА ===
-log "Проверка конфигурации..."
-if ! /usr/bin/gotify-server --config="$CONFIG_FILE" --help >/dev/null 2>&1; then
-    log "ВНИМАНИЕ: Конфиг может содержать ошибки"
-fi
-
 # === ИНФОРМАЦИЯ О СИСТЕМЕ ===
 log_section "Информация о системе"
-log "Версия Gotify: $(/usr/bin/gotify-server --version 2>/dev/null || echo 'unknown')"
-log "Размер базы: $(du -h "$DB_FILE" 2>/dev/null | cut -f1 || echo '0B')"
-log "Файлов в images/: $(ls -1 "$IMAGES_DIR" | wc -l)"
+log "Версия Gotify: $(/usr/bin/gotify-server --version 2>/dev/null | head -1 || echo 'unknown')"
+log "Размер базы: $(du -h "$DB_FILE" 2>/dev/null | cut -f1 2>/dev/null || echo '0B')"
+log "Файлов в images/: $(ls -1 "$IMAGES_DIR" 2>/dev/null | wc -l)"
 log "Порт: 80 → 8486 (наружу)"
 
 # === ЗАПУСК ===

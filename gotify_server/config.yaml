@@ -1,6 +1,6 @@
 name: Gotify Server
-description: Self-hosted notification server with full logging
-version: "0.1.26"
+description: Self-hosted notification server
+version: "0.1.27"
 slug: gotify_server
 url: "https://github.com/alekslegkih/hassio-addons"
 arch:
@@ -10,6 +10,7 @@ image: ghcr.io/alekslegkih/gotify_server-{arch}
 host_network: false
 startup: application
 boot: auto
+init: false
 map:
   - addon_config:rw
   - ssl
