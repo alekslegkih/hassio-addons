@@ -1,6 +1,6 @@
 name: Gotify Server
 description: Self-hosted notification server with full logging
-version: "0.1.25"
+version: "0.1.26"
 slug: gotify_server
 url: "https://github.com/alekslegkih/hassio-addons"
 arch:
@@ -12,7 +12,6 @@ startup: application
 boot: auto
 map:
   - addon_config:rw
-  - homeassistant_config:rw
   - ssl
 ports:
   80/tcp: 8486

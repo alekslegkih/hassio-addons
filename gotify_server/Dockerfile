@@ -9,7 +9,7 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposi
         mc
 
 # Создаем симлинки
-RUN mkdir -p /config /data /addon_configs /var/lib/gotify
+# RUN mkdir -p /config /data /addon_configs /var/lib/gotify
 
 # Копируем скрипт
 COPY run.sh /
