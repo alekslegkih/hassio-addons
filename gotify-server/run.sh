@@ -13,7 +13,7 @@ DEFAULT_ICON="$IMAGES_DIR/defaultapp.png"
 
 log() {
     local timestamp=$(date '+%Y-%m-%d %H:%M:%S')
-    local message="[GOTIFY] $timestamp $1"
+    local message="$timestamp $1"
     echo "$message" | tee -a "$LOG_FILE"
 }
 
