@@ -31,7 +31,7 @@ jobs:
           # Извлекаем корневые папки
           CHANGED_DIRS=$(echo "$CHANGED_FILES" | cut -d'/' -f1 | sort -u)
           
-          KNOWN_ADDONS="simple-dlna nc_user_files_backup gotify_server"
+          KNOWN_ADDONS="simple-dlna nc_user_files_backup gotify-server"
           SELECTED=()
           
           for dir in $CHANGED_DIRS; do
@@ -42,7 +42,7 @@ jobs:
           
           # Если тег — строим всё
           if [[ ${{ github.ref }} == refs/tags/* ]]; then
-            SELECTED=("simple-dlna" "nc_user_files_backup" "gotify_server")
+            SELECTED=("simple-dlna" "nc_user_files_backup" "gotify-server")
           fi
           
           # Формируем JSON вручную (без jq, без sed)
