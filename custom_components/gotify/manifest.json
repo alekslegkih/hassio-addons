@@ -1,0 +1,9 @@
+{
+  "domain": "gotify",
+  "name": "Gotify Local",
+  "version": "0.1.0",
+  "documentation": "https://github.com/alekslegkih/hassio-addons",
+  "codeowners": ["@alekslegkih"],
+  "config_flow": true,
+  "iot_class": "local_push"
+}
