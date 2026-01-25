@@ -1,6 +1,6 @@
 name: Gotify Server
 description: Gotify local notification server
-version: "0.3.1"
+version: "0.3.2"
 slug: gotify-server
 url: "https://github.com/alekslegkih/hassio-addons"
 arch:
