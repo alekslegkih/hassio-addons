@@ -1,6 +1,6 @@
 name: Gotify Server
 description: Gotify local notification server
-version: "0.2.9"
+version: "0.3.1"
 slug: gotify-server
 url: "https://github.com/alekslegkih/hassio-addons"
 arch:
@@ -11,7 +11,6 @@ startup: application
 init: false
 map:
   - addon_config:rw
-  - ssl
 ports:
   80/tcp: 8486
 ports_description:

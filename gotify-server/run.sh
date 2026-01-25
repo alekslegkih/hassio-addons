@@ -1,5 +1,8 @@
 #!/bin/sh
 # Gotify Server Add-on for Home Assistant
+# Note: TLS/SSL is intentionally not configured here.
+# Home Assistant Supervisor handles HTTPS termination.
+
 
 set -e
 
