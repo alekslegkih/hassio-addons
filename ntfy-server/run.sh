@@ -85,7 +85,7 @@ if [ ! -f "$SERVER_CONFIG" ]; then
     cat > "$SERVER_CONFIG" << EOF
 # ntfy server configuration
 listen-http: ":8080"
-# web-root: "-"   # <-- раскомментируй позже, чтобы отключить UI
+web-root: "-"   
 cache-file: "$CACHE_FILE"
 cache-duration: "72h"
 auth-file: /config/auth.db
