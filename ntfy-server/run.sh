@@ -34,8 +34,8 @@ listen-http: ":8080"
 # web-root: "-"   # <-- раскомментируй позже, чтобы отключить UI
 cache-file: /config/cache.db
 cache-duration: "72h"
-# auth-file: /config/auth.db
-# auth-default-access: "deny-all"
+auth-file: /config/auth.db
+auth-default-access: "deny-all"
 EOF
     log "Configuration created: $CONFIG_FILE"
 else
@@ -43,7 +43,7 @@ else
 fi
 
 log_section "System Information"
-log "ntfy version: $(ntfy --version 2>/dev/null | head -1 || echo 'unknown')"
+log "ntfy version: $(ntfy 2>/dev/null | head -1 || echo 'unknown')"
 log "Cache file: /config/cache.db"
 log "ntfy listens on container port 8080"
 log "Home Assistant maps it to external port 8487"

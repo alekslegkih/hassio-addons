@@ -1,6 +1,6 @@
 name: Ntfy Server
 description: Gotify local notification server
-version: "0.1.2"
+version: "0.1.3"
 slug: ntfy-server
 url: "https://github.com/alekslegkih/hassio-addons"
 arch:
