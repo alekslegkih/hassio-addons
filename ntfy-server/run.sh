@@ -84,7 +84,7 @@ if [ ! -f "$SERVER_CONFIG" ]; then
     log "⚙️ Generating default configuration..."
     cat > "$SERVER_CONFIG" << EOF
 # ntfy server configuration
-listen-http: ":80"
+listen-http: ":8080"
 # web-root: "-"   # <-- раскомментируй позже, чтобы отключить UI
 cache-file: "$CACHE_FILE"
 cache-duration: "72h"
