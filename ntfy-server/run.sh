@@ -41,7 +41,9 @@ mkdir -p "$NTFY_ETC_DIR"
 if [ ! -f "$SERVER_CONFIG" ]; then
     log "Generating default configuration..."
     cat > "$SERVER_CONFIG" << EOF
+##==========================
 # ntfy server configuration
+##==========================
 # Listen address for the HTTP
 listen-http: ":8080"
 
