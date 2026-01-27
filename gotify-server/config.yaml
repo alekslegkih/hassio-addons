@@ -1,6 +1,6 @@
 name: Gotify Server
 description: Gotify local notification server
-version: "0.3.2"
+version: "0.3.3"
 slug: gotify-server
 url: "https://github.com/alekslegkih/hassio-addons"
 arch:
@@ -8,11 +8,11 @@ arch:
   - amd64
 image: ghcr.io/alekslegkih/gotify-server-{arch}
 startup: application
-init: false
+init: true
 map:
   - addon_config:rw
 ports:
   80/tcp: 8486
 ports_description:
-  8486/tcp: Web interface and API
+  80/tcp: Web interface and API
 webui: "http://[HOST]:[PORT:8486]"
