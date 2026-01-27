@@ -1,6 +1,6 @@
 name: Ntfy Server
 description: Ntfy local notification server
-version: "0.1.10"
+version: "0.1.11"
 slug: ntfy-server
 url: "https://github.com/alekslegkih/hassio-addons"
 arch:
