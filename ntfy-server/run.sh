@@ -47,9 +47,6 @@ if [ ! -f "$SERVER_CONFIG" ]; then
 # Listen address for the HTTP
 listen-http: ":8080"
 
-# Public URL (required for iOS, attachments, reverse proxy setups)
-# base-url: "https://ntfy.example.com"
-
 # Cache (required for since= and poll)
 cache-file: "$CACHE_FILE"
 cache-duration: "72h"
@@ -66,6 +63,9 @@ message-size-limit: "4k"
 
 # Enable if running behind a reverse proxy
 behind-proxy: true
+
+# Public URL (required for iOS, attachments, reverse proxy setups)
+# base-url: "https://ntfy.example.com"
 EOF
     log "Configuration created: $SERVER_CONFIG"
 else
