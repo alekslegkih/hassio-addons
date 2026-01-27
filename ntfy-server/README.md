@@ -35,7 +35,6 @@ ntfy: [Apache License 2.0](https://github.com/binwiederhier/ntfy/blob/main/LICEN
 ### Ручная установка
 
 В веб-интерфейсе Home Assistant перейдите в:
-
 **Settings → Add-ons → Add-on Store**
 
 В правом верхнем углу нажмите на меню с тремя точками и выберите пункт Repositories.  
@@ -58,10 +57,8 @@ https://github.com/alekslegkih/hassio-addons
 - При последующих запусках используется существующий конфигурационный файл
 
 > [!TIP]
-> Вы можете изменить конфигурацию сервера в файле /config/server.yml  
-> При перезапуске новые настройки применятся автоматически.  
-
-**По умолчанию создаётся следующий конфигурационный файл:**
+> Вы можете вручную изменить файл /config/config.yml.
+> После перезапуска аддона новые настройки применятся автоматически.  
 
 ```yaml
 ## Адрес для прослушивания HTTP-запросов
@@ -102,3 +99,4 @@ behind-proxy: true
 ## Благодарности
 
 binwiederhier — за проект [ntfy](https://github.com/binwiederhier/ntfy)
+Home Assistant — за инфраструктуру аддонов
