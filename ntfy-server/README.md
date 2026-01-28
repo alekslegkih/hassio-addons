@@ -11,8 +11,8 @@
 
 ## Лицензирование
 
-[![Addon](https://img.shields.io/badge/Addon-License%20%7C%20MIT-green.svg)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)
-[![ntfy](https://img.shields.io/badge/ntfy-License%20%7C%20Apache--2.0-blue.svg)](https://github.com/binwiederhier/ntfy/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/Addon-MIT-green)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/ntfy-Apache--2.0-blue)](https://github.com/binwiederhier/ntfy/blob/main/LICENSE)
 
 ## Как это работает
 
@@ -59,7 +59,8 @@ behind-proxy: true
 
 ## Благодарности
 
-binwiederhier — за проект [ntfy](https://github.com/binwiederhier/ntfy)
-Home Assistant — за инфраструктуру аддонов
+Спасибо проекту [ntfy](https://github.com/binwiederhier/ntfy) за сервер push-уведомлений!  
+Проект распространяется под лицензией [Apache License 2.0](https://github.com/binwiederhier/ntfy/blob/main/LICENSE).
+
 
 [license-shield]: https://img.shields.io/github/license/alekslegkih/hassio-addons.svg
