@@ -53,13 +53,13 @@ ntfy user change-pass USERNAME
 # Назначить доступ пользователю к топику
 
 #Чтение и запись:
-ntfy access USERNAME TOPIC - read-write
+ntfy access USERNAME TOPIC rw
 
 # Только чтение:
-ntfy access USERNAME TOPIC - read-only
+ntfy access USERNAME TOPIC ro
 
 # Только публикация сообщений:
-ntfy access USERNAME TOPIC - write-only 
+ntfy access USERNAME TOPIC wo 
 
 #Отозвать доступ к топику
 ntfy access USERNAME TOPIC - deny
