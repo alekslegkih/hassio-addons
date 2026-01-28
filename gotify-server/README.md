@@ -13,8 +13,8 @@
 
 ## Лицензирование
 
-[![Addon](https://img.shields.io/badge/Addon-License%20%7C%20MIT-green.svg)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)
-[![Gotify](https://img.shields.io/badge/Gotify-License%20%7C%20MIT-green.svg)](https://github.com/gotify/server/blob/master/LICENSE)
+[![Addon License: MIT](https://img.shields.io/badge/Addon%20License-MIT-green.svg)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)
+[![Gotify License: MIT](https://img.shields.io/badge/Gotify%20License-MIT-green.svg)](https://github.com/gotify/server/blob/master/LICENSE)
 
 ---
 
@@ -97,5 +97,6 @@ database:
 
 ## Благодарности
 
-Gotify — за проект [Gotify ](https://github.com/gotify/server)  
+Спасибо проекту [Gotify](https://github.com/gotify/server) за простой сервер push-уведомлений!  
+Проект распространяется под лицензией [MIT License](https://github.com/gotify/server/blob/master/LICENSE).
 
