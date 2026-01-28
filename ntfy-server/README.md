@@ -12,7 +12,8 @@
 ## Лицензирование
 
 [![License](https://img.shields.io/badge/Addon-MIT-green)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)
-[![License](https://img.shields.io/badge/ntfy-Apache--2.0-blue)](https://github.com/binwiederhier/ntfy/blob/main/LICENSE)
+[![ntfy License: Apache-2.0](https://img.shields.io/badge/ntfy%20License-Apache--2.0-blue.svg)](https://github.com/binwiederhier/ntfy/blob/main/LICENSE)
+
 
 ## Как это работает
 
