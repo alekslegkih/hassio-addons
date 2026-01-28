@@ -14,39 +14,10 @@
 Аддон: [MIT License](https://github.com/alekslegkih/hassio-addons/tree/main/LICENSE)  
 ntfy: [Apache License 2.0](https://github.com/binwiederhier/ntfy/blob/main/LICENSE)
 
----
+[![License][license-shield]](https://github.com/alekslegkih/hassio-addons/tree/main/LICENSE)
+[![License][license-shield]](https://github.com/binwiederhier/ntfy/blob/main/LICENSE)
 
-## Установка
 
-### Автоматическая установка (рекомендуется)
-
-Чтобы добавить этот репозиторий в Home Assistant, нажмите кнопку ниже:
-
-[![Добавить в Home Assistant](https://img.shields.io/badge/Добавить%20в-Home%20Assistant-blue?logo=home-assistant&logoColor=white&labelColor=41B3A3)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https://github.com/alekslegkih/hassio-addons)
-
-> [!TIP]
-> Если автоматическая кнопка не работает,
-> используйте официальную документацию по установке сторонних аддонов.
-
-[![Официальная документация](https://img.shields.io/badge/Официальная%20документация-Home%20Assistant-blue?logo=home-assistant&logoColor=white&labelColor=41B3A3)](https://www.home-assistant.io/common-tasks/os#installing-a-third-party-add-on-repository)
-
----
-
-### Ручная установка
-
-В веб-интерфейсе Home Assistant перейдите в:
-**Settings → Add-ons → Add-on Store**
-
-В правом верхнем углу нажмите на меню с тремя точками и выберите пункт Repositories.  
-Вставьте ссылку на репозиторий:
-
-```htm
-https://github.com/alekslegkih/hassio-addons
-```
-
-После добавления репозитория установите аддон **ntfy Server** из списка.
-
----
 
 ## Как это работает
 
@@ -61,6 +32,10 @@ https://github.com/alekslegkih/hassio-addons
 > После перезапуска аддона новые настройки применятся автоматически.  
 
 ```yaml
+# Logging
+# Возможные значения: trace, debug, info, warn, error
+log-level: warn
+
 ## Адрес для прослушивания HTTP-запросов
 listen-http: ":8080"
 
@@ -91,3 +66,5 @@ behind-proxy: true
 
 binwiederhier — за проект [ntfy](https://github.com/binwiederhier/ntfy)
 Home Assistant — за инфраструктуру аддонов
+
+[license-shield]: https://img.shields.io/github/license/alekslegkih/hassio-addons.svg

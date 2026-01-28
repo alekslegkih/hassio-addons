@@ -24,6 +24,11 @@ if [ ! -f "$SERVER_CONFIG" ]; then
 ##==========================
 # ntfy server configuration
 ##==========================
+
+# Logging
+# Possible values: trace, debug, info, warn, error
+log-level: info
+
 # Listen address for the HTTP
 listen-http: ":8080"
 
