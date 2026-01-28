@@ -13,8 +13,8 @@
 
 ## Лицензирование
 
-Аддон: [MIT License](https://github.com/alekslegkih/hassio-addons/tree/main/LICENSE)  
-Gotify: [MIT License](https://github.com/gotify/server/blob/master/LICENSE)
+[![Addon](https://img.shields.io/badge/Addon-License%20%7C%20MIT-green.svg)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)
+[![Gotify](https://img.shields.io/badge/Gotify-License%20%7C%20MIT-green.svg)](https://github.com/gotify/server/blob/master/LICENSE)
 
 ---
 
