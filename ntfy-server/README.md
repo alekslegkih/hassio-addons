@@ -11,13 +11,8 @@
 
 ## Лицензирование
 
-Аддон: [MIT License](https://github.com/alekslegkih/hassio-addons/tree/main/LICENSE)  
-ntfy: [Apache License 2.0](https://github.com/binwiederhier/ntfy/blob/main/LICENSE)
-
-[![License][license-shield]](https://github.com/alekslegkih/hassio-addons/tree/main/LICENSE)
-[![License][license-shield]](https://github.com/binwiederhier/ntfy/blob/main/LICENSE)
-
-
+[![Addon](https://img.shields.io/badge/Addon-License%20%7C%20MIT-green.svg)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)
+[![ntfy](https://img.shields.io/badge/ntfy-License%20%7C%20Apache--2.0-blue.svg)](https://github.com/binwiederhier/ntfy/blob/main/LICENSE)
 
 ## Как это работает
 
