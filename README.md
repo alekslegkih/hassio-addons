@@ -37,3 +37,5 @@ https://github.com/alekslegkih/hassio-addons
 
 [Ntfy server](https://github.com/alekslegkih/hassio-addons/tree/main/ntfy-server)
  — Обёртка над официальным сервером [ntfy](https://ntfy.sh)  
+[Gotify server](https://github.com/alekslegkih/hassio-addons/tree/main/gotify-server)
+ — Обёртка над официальным сервером [Gotify](https://github.com/gotify/server)  
