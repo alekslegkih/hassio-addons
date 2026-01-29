@@ -27,7 +27,7 @@ cat > "${CONFIG_FILE}" <<EOF
 friendly_name=${FRIENDLY_NAME}
 media_dir=${MEDIA_DIR}
 db_dir=${CONFIG_DIR}/db
-port=8200  
+port=8200
 inotify=yes
 notify_interval=900
 strict_dlna=no
@@ -37,5 +37,4 @@ log_dir=${LOG_DIR}
 EOF
 
 echo "Starting minidlna"
-minidlnad -R -f "${CONFIG_FILE}"
 exec minidlnad -f "${CONFIG_FILE}"
