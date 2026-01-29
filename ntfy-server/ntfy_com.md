@@ -62,7 +62,10 @@ ntfy access USERNAME TOPIC ro
 ntfy access USERNAME TOPIC wo 
 
 #Отозвать доступ к топику
-ntfy access USERNAME TOPIC - deny
+ntfy access USERNAME TOPIC deny
+
+# Отключить пользователя от топика
+ntfy access --reset USERNAME TOPIC
 
 # Просмотреть все правила доступа
 ntfy access
