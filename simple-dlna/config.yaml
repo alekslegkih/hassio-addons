@@ -9,6 +9,8 @@ arch:
 image: "ghcr.io/alekslegkih/simple-dlna-{arch}"
 host_network: true
 init: true
+ports:
+  8200/tcp: 8200
 startup: services
 watchdog: "tcp://[HOST]:[PORT:8200]"
 panel_icon: mdi:dlna
@@ -24,9 +26,5 @@ schema:
 map:
   - addon_config:rw
   - media:rw  
-ports:
-  8200/tcp: 8200
-ports_description:
-  8200/tcp: Web interface 
-webui: "http://[HOST]:[PORT:8200]"
+
 
