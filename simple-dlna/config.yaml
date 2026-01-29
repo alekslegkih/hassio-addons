@@ -10,7 +10,6 @@ image: "ghcr.io/alekslegkih/simple-dlna-{arch}"
 host_network: true
 init: true
 startup: services
-watchdog: http://localhost:8200
 panel_icon: mdi:dlna
 panel_title: DLNA
 options:
