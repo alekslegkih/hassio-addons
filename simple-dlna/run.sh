@@ -1,25 +1,36 @@
-#!/bin/bash
+#!/bin/sh
 
-# --- Чтение настроек из options.json ---
-DEVICE=""
-MOUNTPOINT="/data/media"
-FRIENDLY_NAME="HAOS-DLNA"
-ENABLE_SUBTITLES="yes"
+set -e
+set -o pipefail
+
+CONFIG_DIR="/config"
+CONFIG_FILE="$CONFIG_DIR/minidlna.conf"
+DB_DIR="$CONFIG_DIR/db"
+
+MEDIA_DIR="/media/Data"
+FRIENDLY_NAME="Simple DLNA"
+LOG_LEVEL="warn"
 
 if [ -f /data/options.json ]; then
-  DEVICE=$(jq -r '.device // empty' /data/options.json)
-  MOUNTPOINT=$(jq -r '.mountpoint // "/data/media"' /data/options.json)
-  FRIENDLY_NAME=$(jq -r '.friendly_name // "HAOS-DLNA"' /data/options.json)
-  ENABLE_SUBTITLES=$(jq -r '.enable_subtitles // "yes"' /data/options.json)
+  MEDIA_DIR=$(jq -r '.media_dir // "/data/media"' /data/options.json)
+  FRIENDLY_NAME=$(jq -r '.friendly_name // "Simple DLNA"' /data/options.json)
+  LOG_LEVEL=$(jq -r '.log_level // "warn"' /data/options.json)
 fi
 
-# --- Обновление конфига minidlna ---
-CONFIG="/etc/minidlna/minidlna.conf"
+mkdir -p \
+  "${CONFIG_DIR}/db"
 
-# Подменяем значения
-sed -i "s|^friendly_name=.*|friendly_name=${FRIENDLY_NAME}|" "$CONFIG"
-sed -i "s|^enable_subtitles=.*|enable_subtitles=${ENABLE_SUBTITLES}|" "$CONFIG"
-sed -i "s|^media_dir=.*|media_dir=${MOUNTPOINT}|" "$CONFIG"
+cat > "${CONFIG_FILE}" <<EOF
+friendly_name=${FRIENDLY_NAME}
+media_dir=${MEDIA_DIR}
+db_dir=${CONFIG_DIR}/db
+port=8200  
+inotify=yes
+notify_interval=900
+strict_dlna=no
+album_art_names=Cover.jpg/cover.jpg/AlbumArtSmall.jpg/albumartsmall.jpg/AlbumArt.jpg/albumart.jpg/Album.jpg/album.jpg/Folder.jpg/folder.jpg/Thumb.jpg/thumb.jpg
+log_level=general,artwork,database,inotify,scanner,metadata,http,ssdp,tivo=${LOG_LEVEL}
+EOF
 
-# --- Запуск сервера ---
-exec minidlnad -f "$CONFIG" -d
+echo "Starting minidlna"
+exec minidlnad -f "${CONF_FILE}"

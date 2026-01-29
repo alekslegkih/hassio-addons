@@ -12,7 +12,6 @@ RUN apk add --no-cache \
     mc  # <-- Это временно для тестирования
 
 COPY run.sh /
-COPY rootfs/etc/minidlna/ /etc/minidlna/
 
 RUN chmod a+x /run.sh /
 

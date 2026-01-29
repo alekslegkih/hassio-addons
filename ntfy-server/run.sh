@@ -1,5 +1,4 @@
 #!/bin/sh
-# ntfy Server Add-on for Home Assistant
 
 set -e
 set -o pipefail
