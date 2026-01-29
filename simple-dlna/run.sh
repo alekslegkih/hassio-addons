@@ -7,7 +7,7 @@ CONFIG_DIR="/config"
 CONFIG_FILE="$CONFIG_DIR/minidlna.conf"
 DB_DIR="$CONFIG_DIR/db"
 
-MEDIA_DIR="/media/Data"
+MEDIA_DIR="/media"
 FRIENDLY_NAME="Simple DLNA"
 LOG_LEVEL="warn"
 
@@ -33,4 +33,4 @@ log_level=general,artwork,database,inotify,scanner,metadata,http,ssdp,tivo=${LOG
 EOF
 
 echo "Starting minidlna"
-exec minidlnad -f "${CONF_FILE}"
+exec minidlnad -f "${CONFIG_FILE}"
