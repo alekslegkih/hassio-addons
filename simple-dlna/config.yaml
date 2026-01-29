@@ -11,6 +11,8 @@ host_network: true
 init: true
 ports:
   8200/tcp: 8200
+ports_description:
+  8200/tcp: Static server
 startup: services
 watchdog: tcp://[HOST]:[PORT:8200]
 panel_icon: mdi:dlna
