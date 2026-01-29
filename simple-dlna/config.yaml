@@ -1,6 +1,6 @@
 name: Simple DLNA
 description: "Lightweight DLNA server based on ReadyMedia (minidlna). Streams video from local or USB storage."
-version: "0.1.36"
+version: "0.1.37"
 slug: simple-dlna
 url: "https://github.com/alekslegkih/hassio-addons"
 arch:
