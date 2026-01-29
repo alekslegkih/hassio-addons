@@ -9,6 +9,8 @@ arch:
 image: ghcr.io/alekslegkih/ntfy-server-{arch}
 startup: application
 init: true
+panel_icon: mdi:bell-ring
+panel_title: ntfy
 map:
   - addon_config:rw
 ports:
@@ -16,5 +18,3 @@ ports:
 ports_description:
   8487/tcp: Web interface and API
 webui: "http://[HOST]:[PORT:8487]"
-panel_icon: mdi:bell-ring
-panel_title: ntfy
