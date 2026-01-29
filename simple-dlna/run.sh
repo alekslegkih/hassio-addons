@@ -6,6 +6,8 @@ set -o pipefail
 CONFIG_DIR="/config"
 CONFIG_FILE="$CONFIG_DIR/minidlna.conf"
 DB_DIR="$CONFIG_DIR/db"
+LOG_DIR=$CONFIG_DIR/log"
+
 
 MEDIA_DIR="/media"
 FRIENDLY_NAME="Simple DLNA"
@@ -18,7 +20,8 @@ if [ -f /data/options.json ]; then
 fi
 
 mkdir -p \
-  "${CONFIG_DIR}/db"
+  "${DB_DIR}" \
+  "${LOG_DIR}"
 
 cat > "${CONFIG_FILE}" <<EOF
 friendly_name=${FRIENDLY_NAME}
