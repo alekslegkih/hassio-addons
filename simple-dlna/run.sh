@@ -3,27 +3,14 @@
 # --- Чтение настроек из options.json ---
 DEVICE=""
 MOUNTPOINT="/data/media"
-LOG_LEVEL="warn"
 FRIENDLY_NAME="HAOS-DLNA"
 ENABLE_SUBTITLES="yes"
 
 if [ -f /data/options.json ]; then
   DEVICE=$(jq -r '.device // empty' /data/options.json)
   MOUNTPOINT=$(jq -r '.mountpoint // "/data/media"' /data/options.json)
-  LOG_LEVEL=$(jq -r '.log_level // "warn"' /data/options.json)
   FRIENDLY_NAME=$(jq -r '.friendly_name // "HAOS-DLNA"' /data/options.json)
   ENABLE_SUBTITLES=$(jq -r '.enable_subtitles // "yes"' /data/options.json)
-fi
-
-# --- Монтирование USB-диска ---
-mkdir -p "$MOUNTPOINT"
-
-if [ -n "$DEVICE" ] && ! mountpoint -q "$MOUNTPOINT"; then
-  echo "Mounting $DEVICE to $MOUNTPOINT..."
-  if ! mount "$DEVICE" "$MOUNTPOINT"; then
-    echo "ERROR: Failed to mount $DEVICE"
-    exit 1
-  fi
 fi
 
 # --- Обновление конфига minidlna ---

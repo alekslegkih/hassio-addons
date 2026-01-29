@@ -1,6 +1,6 @@
 name: Simple DLNA
 description: "Lightweight DLNA server based on ReadyMedia (minidlna). Streams video from local or USB storage."
-version: "0.1.25"
+version: "0.1.26"
 slug: simple-dlna
 url: "https://github.com/alekslegkih/hassio-addons"
 arch:
@@ -12,7 +12,7 @@ init: true
 ports:
   8200/tcp: 8200
 startup: services
-watchdog: "tcp://127.0.0.1:8200"
+watchdog: tcp://[HOST]:[PORT:8200]
 panel_icon: mdi:dlna
 panel_title: DLNA
 options:
