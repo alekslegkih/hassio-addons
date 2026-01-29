@@ -1,4 +1,4 @@
-# Краткая памятка по командам **ntfy**
+# Краткая справка по командам **ntfy**
 
 Аддон использует встроенную систему аутентификации **ntfy**.  
 Управление пользователями и правами выполняется через CLI внутри контейнера аддона.
@@ -15,7 +15,7 @@ docker exec -it addon_dc0b8324_ntfy-server /bin/sh
 
 Далее все команды выполняются внутри контейнера.
 
-> [TRIP]
+> [!TIP]
 > Полную справку всегда можно получить выполнив команды  
 
 ```bash
@@ -43,7 +43,7 @@ ntfy user change-pass USERNAME
 ```
 
 ---
-> [TRIP]
+> [!TIP]
 > По умолчанию в конфигурации включено: **auth-default-access: "deny-all"**  
 > Это означает, что доступ к топикам необходимо назначать явно.
 
@@ -53,13 +53,13 @@ ntfy user change-pass USERNAME
 # Назначить доступ пользователю к топику
 
 #Чтение и запись:
-ntfy access USERNAME TOPIC rw
+ntfy access USERNAME TOPIC read-write 
 
 # Только чтение:
-ntfy access USERNAME TOPIC ro
+ntfy access USERNAME TOPIC read-only
 
 # Только публикация сообщений:
-ntfy access USERNAME TOPIC wo 
+ntfy access USERNAME TOPIC write-only
 
 #Отозвать доступ к топику
 ntfy access USERNAME TOPIC deny
@@ -67,7 +67,7 @@ ntfy access USERNAME TOPIC deny
 # Отключить пользователя от топика
 ntfy access --reset USERNAME TOPIC
 
-# Просмотреть все правила доступа
+# Просмотреть все доступы к топикам
 ntfy access
 ```
 
