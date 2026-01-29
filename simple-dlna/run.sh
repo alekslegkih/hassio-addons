@@ -6,7 +6,7 @@ set -o pipefail
 CONFIG_DIR="/config"
 CONFIG_FILE="$CONFIG_DIR/minidlna.conf"
 DB_DIR="$CONFIG_DIR/db"
-LOG_DIR=$CONFIG_DIR/log"
+LOG_DIR="$CONFIG_DIR/log"
 
 
 MEDIA_DIR="/media"
@@ -33,6 +33,7 @@ notify_interval=900
 strict_dlna=no
 album_art_names=Cover.jpg/cover.jpg/AlbumArtSmall.jpg/albumartsmall.jpg/AlbumArt.jpg/albumart.jpg/Album.jpg/album.jpg/Folder.jpg/folder.jpg/Thumb.jpg/thumb.jpg
 log_level=general,artwork,database,inotify,scanner,metadata,http,ssdp,tivo=${LOG_LEVEL}
+log_dir=${LOG_DIR}
 EOF
 
 echo "Starting minidlna"
