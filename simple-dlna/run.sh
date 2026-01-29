@@ -12,7 +12,7 @@ FRIENDLY_NAME="Simple DLNA"
 LOG_LEVEL="warn"
 
 if [ -f /data/options.json ]; then
-  MEDIA_DIR=$(jq -r '.media_dir // "/data/media"' /data/options.json)
+  MEDIA_DIR=$(jq -r '.media_dir // "/media"' /data/options.json)
   FRIENDLY_NAME=$(jq -r '.friendly_name // "Simple DLNA"' /data/options.json)
   LOG_LEVEL=$(jq -r '.log_level // "warn"' /data/options.json)
 fi
