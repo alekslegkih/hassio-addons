@@ -10,8 +10,8 @@ image: "ghcr.io/alekslegkih/simple-dlna-{arch}"
 host_network: true
 startup: once
 options:
-  device: "/dev/sdb1"
-  mountpoint: "/data/media"
+  device: ""
+  mountpoint: ""
   friendly_name: "HAOS-DLNA"
   log_level: "info"
   enable_subtitles: true
