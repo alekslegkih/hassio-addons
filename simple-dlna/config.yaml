@@ -10,6 +10,9 @@ image: "ghcr.io/alekslegkih/simple-dlna-{arch}"
 host_network: true
 init: true
 startup: services
+watchdog: tcp://localhost:8200
+panel_icon: mdi:dlna
+panel_title: DLNA
 options:
   mountpoint: "/media"
   friendly_name: "HAOS-DLNA"
@@ -26,5 +29,4 @@ ports:
 ports_description:
   8200/tcp: Web interface 
 webui: "http://[HOST]:[PORT:8200]"
-panel_icon: mdi:dlna
-panel_title: DLNA
+
