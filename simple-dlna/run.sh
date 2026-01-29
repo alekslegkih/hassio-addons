@@ -37,4 +37,4 @@ log_dir=${LOG_DIR}
 EOF
 
 echo "Starting minidlna"
-exec minidlnad -d -V -f "${CONFIG_FILE}"
+exec minidlnad -f "$CONFIG_FILE" -d
