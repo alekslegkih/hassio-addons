@@ -18,38 +18,6 @@
 
 ---
 
-## Установка
-
-### Автоматическая установка (рекомендуется)
-
-Чтобы добавить этот репозиторий в Home Assistant, нажмите кнопку ниже:
-
-[![Добавить в Home Assistant](https://img.shields.io/badge/Добавить%20в-Home%20Assistant-blue?logo=home-assistant&logoColor=white&labelColor=41B3A3)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https://github.com/alekslegkih/hassio-addons)
-
-> [!TIP]
-> Если автоматическая кнопка не работает,
-> используйте официальную документацию по установке сторонних аддонов.
-
-[![Официальная документация](https://img.shields.io/badge/Официальная%20документация-Home%20Assistant-blue?logo=home-assistant&logoColor=white&labelColor=41B3A3)](https://www.home-assistant.io/common-tasks/os#installing-a-third-party-add-on-repository)
-
----
-
-### Ручная установка
-
-В веб-интерфейсе Home Assistant перейдите в:
-**Settings → Add-ons → Add-on Store**
-
-В правом верхнем углу нажмите на меню с тремя точками и выберите пункт Repositories.  
-Вставьте ссылку на репозиторий:
-
-```htm
-https://github.com/alekslegkih/hassio-addons
-```
-
-После добавления репозитория установите аддон **ntfy Server** из списка.
-
----
-
 ## Как это работает
 
 При первом запуске аддон:
