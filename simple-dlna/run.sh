@@ -17,11 +17,8 @@ fi
 CONFIG="/etc/minidlna/minidlna.conf"
 
 # Подменяем значения
-sed -i "s|^log_level=.*|log_level=${LOG_LEVEL}|" "$CONFIG"
 sed -i "s|^friendly_name=.*|friendly_name=${FRIENDLY_NAME}|" "$CONFIG"
 sed -i "s|^enable_subtitles=.*|enable_subtitles=${ENABLE_SUBTITLES}|" "$CONFIG"
-
-# Убедимся, что media_dir указывает на правильную папку
 sed -i "s|^media_dir=.*|media_dir=${MOUNTPOINT}|" "$CONFIG"
 
 # --- Запуск сервера ---
