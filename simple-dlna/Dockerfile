@@ -8,9 +8,8 @@ LABEL \
   io.hass.arch="${BUILD_ARCH}"
 
 RUN apk add --no-cache \
-    minidlna \
-    mc  # <-- Это временно для тестирования
-
+    minidlna
+    
 COPY run.sh /
 
 RUN chmod a+x /run.sh /
