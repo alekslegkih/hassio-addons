@@ -1,12 +1,12 @@
 name: Ntfy Server
 description: Local notification server ntfy for Home Assistant OS.
-version: "0.1.17"
+version: "0.2.1"
 slug: ntfy-server
 url: "https://github.com/alekslegkih/hassio-addons"
 arch:
   - aarch64
   - amd64
-image: ghcr.io/alekslegkih/ntfy-server-{arch}
+image: ghcr.io/alekslegkih/ntfy-server
 startup: application
 init: true
 panel_icon: mdi:bell-ring
