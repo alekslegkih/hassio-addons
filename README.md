@@ -39,3 +39,6 @@ https://github.com/alekslegkih/hassio-addons
  — Обёртка над официальным сервером [ntfy](https://ntfy.sh)  
 [Gotify server](https://github.com/alekslegkih/hassio-addons/tree/main/gotify-server)
  — Обёртка над официальным сервером [Gotify](https://github.com/gotify/server)  
+[Simple dlna](https://github.com/alekslegkih/hassio-addons/tree/main/simple-dlna)
+ — Обёртка над официальным сервером [ReadyMedia](https://sourceforge.net/projects/minidlna/) 
+
