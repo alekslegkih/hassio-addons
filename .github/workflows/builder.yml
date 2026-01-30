@@ -51,7 +51,7 @@ jobs:
             exit 0
           fi
 
-          JSON=$(printf '%s\n' $ADDONS | jq -R . | jq -s .)
+          JSON=$(printf '%s\n' $ADDONS | jq -R . | jq -s -c .)
           echo "Detected addons: $JSON"
           echo "addons=$JSON" >> "$GITHUB_OUTPUT"
 
