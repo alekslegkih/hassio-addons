@@ -1,6 +1,6 @@
 # Legkih Add-ons for Home Assistant
 
-[Русская версия](https://github.com/alekslegkih/hassio-addons/blob/main/ntfy-server/README_RU.md)
+[Русская версия](https://github.com/alekslegkih/hassio-addons/blob/main/README_RU.md)
 
 ## Automatic Installation (Recommended)
 
