@@ -1,46 +1,48 @@
 # Simple DLNA
 
-Этот аддон — обёртка над лёгким сервером **ReadyMedia (minidlna)**, предназначенная для
-быстрого развёртывания DLNA-сервера в среде Home Assistant OS.
+[Русская версия](https://github.com/alekslegkih/hassio-addons/blob/main/simple-dlna/README_RU.md)
 
-Аддон предоставляет базовый DLNA-сервер для трансляции видео, аудио и изображений
-из каталогов Home Assistant (включая USB-накопители и сетевые хранилища).
+This add-on is a wrapper around the lightweight **ReadyMedia (minidlna)** server,
+designed for quick and easy deployment of a DLNA server in the Home Assistant OS environment.
+
+The add-on provides a basic DLNA server for streaming video, audio, and images
+from Home Assistant directories, including USB storage devices and network shares.
 
 > [!WARNING]
-> Аддон не изменяет логику работы minidlna, не добавляет собственных API
-> и не управляет внутренними механизмами DLNA.
-> Поведение сервера полностью соответствует стандартному ReadyMedia.
+> This add-on does not modify the internal logic of minidlna, does not add custom APIs,
+> and does not manage DLNA internals.  
+> The server behavior fully matches the standard ReadyMedia implementation.
 
 ---
 
-## Лицензирование
+## Licensing
 
-[![Addon License: MIT](https://img.shields.io/badge/Addon%20License-MIT-green.svg)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)
+[![Addon License: MIT](https://img.shields.io/badge/Addon%20License-MIT-green.svg)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)  
 [![ReadyMedia License: GPL--2.0](https://img.shields.io/badge/ReadyMedia%20License-GPL--2.0-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
 ---
 
-## Как это работает
+## How It Works
 
-- При первом запуске аддон:
-  - создаёт конфигурационный файл **minidlna.conf**,
-  - инициализирует базу данных медиафайлов,
-  - запускает DLNA-сервер в foreground-режиме.
-- При последующих запусках используется существующая база и конфигурация.
-- Сервер автоматически отслеживает изменения файловой системы
-  и обновляет медиатеку.
+- On the first start, the add-on:
+  - creates the minidlna.conf configuration file,
+  - initializes the media database,
+  - starts the DLNA server in foreground mode.
+- On subsequent starts, the existing configuration and database are reused.
+- The server automatically monitors file system changes
+  and updates the media library.
 
-Каталоги с медиафайлами подключаются через стандартный механизм Home Assistant
-(`/media`, USB-накопители, сетевые шары).
+Media directories are mounted using standard Home Assistant mechanisms
+(/media, USB drives, and network shares).
 
 ---
 
-## Конфигурация
+## Configuration
 
-Конфигурационный файл **minidlna.conf** создаётся автоматически в каталоге аддона
-и сохраняется между перезапусками.
+The minidlna.conf configuration file is created automatically inside the add-on directory
+and is preserved between restarts.
 
-Пример используемой конфигурации:
+Example configuration used by the add-on:
 
 ```conf
 friendly_name=Simple DLNA
@@ -60,30 +62,30 @@ log_level=general,artwork,database,inotify,scanner,metadata,http,ssdp,tivo=warn
 ```
 
 > [!TIP]
-> Вы можете вручную изменить файл minidlna.conf в каталоге аддона.
-> После перезапуска аддона изменения будут применены автоматически.
+> You can manually edit the minidlna.conf file in the add-on directory.  
+> Changes will be applied automatically after restarting the add-on.
 
 ---
 
-## Сеть и доступ
+## Network and Access
 
-- DLNA использует широковещательные протоколы (SSDP),
-  поэтому аддон работает в режиме `host_network`.
-- Веб-интерфейс сервера статистики доступен по TCP-порту **8200**.
-- Внутренний порт сервера фиксирован, внешний порт может быть изменён
-  в настройках аддона Home Assistant.
-
----
-
-## Особенности и ограничения
-
-- Аддон предназначен для локальной сети.
-- Аутентификация и шифрование не поддерживаются (ограничение DLNA).
-- Производительность и возможности зависят от используемых DLNA-клиентов.
+- DLNA uses broadcast protocols (SSDP),
+  therefore the add-on operates in host_network mode.
+- The server statistics web interface is available on TCP port **8200**.
+- The internal service port is fixed, but the external port
+  can be changed in the Home Assistant add-on settings.
 
 ---
 
-## Благодарности
+## Features and Limitations
 
-Спасибо проекту **ReadyMedia (minidlna)** за простой и надёжный DLNA-сервер.  
-Проект распространяется под лицензией [GNU General Public License v2](https://sourceforge.net/projects/minidlna/)
+- The add-on is intended for use within a local network.
+- Authentication and encryption are not supported (DLNA limitation).
+- Performance and capabilities depend on the DLNA clients in use.
+
+---
+
+## Acknowledgements
+
+Thanks to the **ReadyMedia (minidlna)** project for a simple and reliable DLNA server.  
+The project is distributed under the  [GNU General Public License v2](https://sourceforge.net/projects/minidlna/)

@@ -1,70 +1,73 @@
 # Gotify Server
 
-Этот аддон — обёртка над сервером [Gotify](https://github.com/gotify/server), предназначенная для удобного развёртывания
-локального сервера push-уведомлений в Home Assistant.
+[Русская версия](https://github.com/alekslegkih/hassio-addons/blob/main/gotify-server/README_RU.md)
+
+This add-on is a wrapper around the [Gotify](https://github.com/gotify/server) server,
+designed for convenient deployment of a local push notification server
+in Home Assistant.
 
 > [!WARNING]
-> Аддон не модифицирует Gotify и не управляет пользователями, приложениями или токенами.  
-> Все настройки и управление выполняются стандартными средствами Gotify через Web UI или API.  
-> HTTPS и SSL в аддоне не настраиваются намеренно.  
-> TLS-терминация выполняется Home Assistant или внешним прокси.
+> This add-on does not modify Gotify and does not manage users, applications, or tokens.  
+> All configuration and management is performed using standard Gotify tools
+> via the Web UI or API.  
+> HTTPS and SSL are intentionally not configured in this add-on.  
+> TLS termination is expected to be handled by Home Assistant or an external reverse proxy.
 
 ---
 
-## Лицензирование
+## Licensing
 
-[![Addon License: MIT](https://img.shields.io/badge/Addon%20License-MIT-green.svg)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)
+[![Addon License: MIT](https://img.shields.io/badge/Addon%20License-MIT-green.svg)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)  
 [![Gotify License: MIT](https://img.shields.io/badge/Gotify%20License-MIT-green.svg)](https://github.com/gotify/server/blob/master/LICENSE)
 
 ---
 
-## Как это работает
+## How It Works
 
-При первом запуске аддон:
+On the first start, the add-on:
 
-- создаёт файл конфигурации /config,/config.yml,
-- инициализирует базу данных SQLite,
-- запускает сервер Gotify.
+- creates the configuration file at /config/config.yml,
+- initializes the SQLite database,
+- starts the Gotify server.
 
-При последующих запусках:
+On subsequent starts:
 
-- используется существующий конфигурационный файл,
-- все данные сохраняются между перезапусками.
+- the existing configuration file is reused,
+- all data is preserved between restarts.
 
 > [!TIP]
-> Вы можете вручную изменить файл /config/config.yml  
-> После перезапуска аддона новые настройки применятся автоматически.
+> You can manually edit the /config/config.yml file.  
+> New settings will be applied automatically after restarting the add-on.
 
 ---
 
-## Конфигурация по умолчанию
+## Default Configuration
 
-При первом запуске создаётся следующий конфигурационный файл:
+On the first start, the following configuration file is created:
 
 ```yaml
-server:
-  listenaddr: 0.0.0.0
-  port: 80
-  uploadedimagesdir: /config/images
+    server:
+      listenaddr: 0.0.0.0
+      port: 80
+      uploadedimagesdir: /config/images
 
-database:
-  dialect: sqlite3
-  connection: /config/gotify.db
+    database:
+      dialect: sqlite3
+      connection: /config/gotify.db
 ```
 
-Аддон использует SQLite и не требует внешней базы данных.
+The add-on uses SQLite and does not require an external database.
 
 ---
 
-## Веб-интерфейс
+## Web Interface
 
-- Веб-интерфейс Gotify доступен через кнопку Web UI в Home Assistant
-- По умолчанию используется порт 8486
+- The Gotify web interface is available via the Web UI button in Home Assistant.
+- By default, port **8486** is used.
 
 ---
 
-## Благодарности
+## Acknowledgements
 
-Спасибо проекту [Gotify](https://github.com/gotify/server) за простой сервер push-уведомлений!  
-Проект распространяется под лицензией [MIT License](https://github.com/gotify/server/blob/master/LICENSE).
-
+Thanks to the [Gotify](https://github.com/gotify/server) project for the simple push notification server!  
+The project is distributed under the [MIT License](https://github.com/gotify/server/blob/master/LICENSE).

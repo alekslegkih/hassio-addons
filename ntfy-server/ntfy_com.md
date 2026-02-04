@@ -1,80 +1,79 @@
-# Краткая справка по командам **ntfy**
+# ntfy Command Quick Reference
 
-Аддон использует встроенную систему аутентификации **ntfy**.  
-Управление пользователями и правами выполняется через CLI внутри контейнера аддона.
+The add-on uses the built-in **ntfy** authentication system.  
+User and permission management is performed via the CLI inside the add-on container.
 
 ---
 
-## Доступ к CLI аддона
+## Accessing the Add-on CLI
 
-Через аддон Home Assistant OS (SSH):
+Via the Home Assistant OS add-on (SSH):
 
-```bash
-docker exec -it addon_dc0b8324_ntfy-server /bin/sh
-```
+```bash    docker exec -it addon_dc0b8324_ntfy-server /bin/sh
 
-Далее все команды выполняются внутри контейнера.
+After that, all commands are executed inside the container.
 
 > [!TIP]
-> Полную справку всегда можно получить выполнив команды  
+> You can always get full help by running:
 
 ```bash
-ntfy --help  
-ntfy <commands> --help  
+    ntfy --help
+    ntfy <command> --help
 ```
 
 ---
 
-## Краткий перечень основных комманд
+## Quick List of Common Commands
 
 ```bash
-# Получить список пользователей
-ntfy user list
+    # List users
+    ntfy user list
 
-# Добавить пользователя
-# При выполнении команды будет предложено задать пароль.
-ntfy user add USERNAME
+    # Add a user
+    # You will be prompted to set a password
+    ntfy user add USERNAME
 
-# Удалить пользователя
-ntfy user remove USERNAME
+    # Remove a user
+    ntfy user remove USERNAME
 
-# Сменить пароль пользоввтале
-ntfy user change-pass USERNAME
+    # Change a user password
+    ntfy user change-pass USERNAME
 ```
 
 ---
+
 > [!TIP]
-> По умолчанию в конфигурации включено: **auth-default-access: "deny-all"**  
-> Это означает, что доступ к топикам необходимо назначать явно.
+> By default, the configuration enables **auth-default-access: "deny-all"**.  
+> This means access to topics must be explicitly granted.
 
 ---
 
 ```bash
-# Назначить доступ пользователю к топику
+    # Grant user access to a topic
 
-#Чтение и запись:
-ntfy access USERNAME TOPIC read-write 
+    # Read and write access:
+    ntfy access USERNAME TOPIC read-write
 
-# Только чтение:
-ntfy access USERNAME TOPIC read-only
+    # Read-only access:
+    ntfy access USERNAME TOPIC read-only
 
-# Только публикация сообщений:
-ntfy access USERNAME TOPIC write-only
+    # Publish-only access:
+    ntfy access USERNAME TOPIC write-only
 
-#Отозвать доступ к топику
-ntfy access USERNAME TOPIC deny
+    # Deny access to a topic:
+    ntfy access USERNAME TOPIC deny
 
-# Отключить пользователя от топика
-ntfy access --reset USERNAME TOPIC
+    # Remove all topic permissions for a user
+    ntfy access --reset USERNAME TOPIC
 
-# Просмотреть все доступы к топикам
-ntfy access
+    # List all topic access rules
+    ntfy access
 ```
 
 ---
 
-## Примечания
+## Notes
 
-- Все изменения применяются **мгновенно**, перезапуск аддона не требуется
-- База пользователей и доступов хранится в файле `/config/auth.db`
-- Управление пользователями недоступно через Web UI и выполняется только через CLI
+- All changes are applied **immediately**; restarting the add-on is not required.
+- User and access data is stored in the `/config/auth.db` file.
+- User management is not available via the Web UI and can only be performed through the CLI.

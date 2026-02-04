@@ -1,67 +1,73 @@
 # ntfy Server
 
-Этот аддон — обёртка над официальным сервером [ntfy](https://ntfy.sh), предназначенная для удобного развёртывания локального сервера уведомлений
-в экосистеме Home Assistant.
+[Русская версия](https://github.com/alekslegkih/hassio-addons/blob/main/ntfy-server/README_RU.md)
+
+This add-on is a wrapper around the official [ntfy](https://ntfy.sh) server,
+designed for convenient deployment of a local notification server
+within the Home Assistant ecosystem.
 
 > [!WARNING]
-> Аддон не изменяет логику ntfy, не добавляет собственных API и не управляет внутренней конфигурацией сервера.  
-> Управление пользователями, доступами и топиками выполняется стандартными [средствами](ntfy_com.md) ntfy.
+> This add-on does not modify ntfy logic, does not add custom APIs,
+> and does not manage the internal server configuration.  
+> User management, access control, and topic handling are performed using
+> standard ntfy [tools](ntfy_com.md).
 
 ---
 
-## Лицензирование
+## Licensing
 
-[![Addon License: MIT](https://img.shields.io/badge/Addon%20License-MIT-green.svg)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)
+[![Addon License: MIT](https://img.shields.io/badge/Addon%20License-MIT-green.svg)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)  
 [![ntfy License: Apache-2.0](https://img.shields.io/badge/ntfy%20License-Apache--2.0-blue.svg)](https://github.com/binwiederhier/ntfy/blob/main/LICENSE)
 
-
-## Как это работает
-
-- При первом запуске аддон:
-  - создаёт файл конфигурации **server.yml**,
-  - создаёт базы данных кэша и аутентификации,
-  - запускает сервер ntfy.
-- При последующих запусках используется существующий конфигурационный файл
-
-> [!TIP]
-> Вы можете вручную изменить файл /config/config.yml.
-> После перезапуска аддона новые настройки применятся автоматически.  
-
-```yaml
-# Logging
-# Возможные значения: trace, debug, info, warn, error
-log-level: warn
-
-## Адрес для прослушивания HTTP-запросов
-listen-http: ":8080"
-
-## Кэш (требуется для параметров since= и poll)
-cache-file: "/config/cache.db"
-cache-duration: "72h"
-
-## Аутентификация
-auth-file: "/config/auth.db"
-auth-default-access: "deny-all"  # по умолчанию — запретить всё
-
-## Рекомендуется для мобильных клиентов
-keepalive-interval: "45s"
-
-## Ограничения на размерс ообщения
-message-size-limit: "4k"
-
-## Включите, если сервис работает за обратным прокси
-behind-proxy: true
-
-## Публичный URL (обязателен для iOS, вложений)
-## Необходим при использовании обратного прокси с UI
-# base-url: "https://ntfy.example.com"
-```
 ---
 
-## Благодарности
+## How It Works
 
-Спасибо проекту [ntfy](https://github.com/binwiederhier/ntfy) за сервер push-уведомлений!  
-Проект распространяется под лицензией [Apache License 2.0](https://github.com/binwiederhier/ntfy/blob/main/LICENSE).
+- On the first start, the add-on:
+  - creates the **server.yml** configuration file,
+  - creates cache and authentication databases,
+  - starts the ntfy server.
+- On subsequent starts, the existing configuration file is reused.
 
+> [!TIP]
+> You can manually edit the /config/config.yml file.  
+> New settings will be applied automatically after restarting the add-on.
 
-[license-shield]: https://img.shields.io/github/license/alekslegkih/hassio-addons.svg
+Example configuration:
+
+```yaml
+  # Logging
+  # Possible values: trace, debug, info, warn, error
+  log-level: warn
+
+  ## Address to listen for HTTP requests
+  listen-http: ":8080"
+
+  ## Cache (required for since= and poll parameters)
+  cache-file: "/config/cache.db"
+  cache-duration: "72h"
+
+  ## Authentication
+  auth-file: "/config/auth.db"
+  auth-default-access: "deny-all"  # deny everything by default
+
+  ## Recommended for mobile clients
+  keepalive-interval: "45s"
+
+  ## Message size limit
+  message-size-limit: "4k"
+
+  ## Enable if the service is running behind a reverse proxy
+  behind-proxy: true
+
+  ## Public URL (required for iOS and attachments)
+  ## Required when using a reverse proxy with the web UI
+  # base-url: "https://ntfy.example.com"
+```
+
+---
+
+## Acknowledgements
+
+Thanks to the [ntfy](https://github.com/binwiederhier/ntfy) project for the push notification server!  
+The project is distributed under the [Apache License 2.0](https://github.com/binwiederhier/ntfy/blob/main/LICENSE).
