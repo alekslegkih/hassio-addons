@@ -30,7 +30,7 @@ https://github.com/alekslegkih/hassio-addons
 ## Список аддонов в этом репозитории
 
 [nc_user_files_backup](https://github.com/alekslegkih/hassio-addons/tree/main/nc_user_files_backup)
- — Автоматическое резервное копирование файлов пользователей Nextcloud на внешний USB-диск  
+ — Автоматическое копирование файлов пользователей Nextcloud на внешний USB-диск  
 [Ntfy server](https://github.com/alekslegkih/hassio-addons/tree/main/ntfy-server)
  — Обёртка над официальным сервером [ntfy](https://ntfy.sh)  
 [Gotify server](https://github.com/alekslegkih/hassio-addons/tree/main/gotify-server)
