@@ -18,7 +18,6 @@
 [![Addon License: MIT](https://img.shields.io/badge/Addon%20License-MIT-green.svg)](https://github.com/alekslegkih/hassio-addons/blob/main/LICENSE)
 [![ReadyMedia License: GPL--2.0](https://img.shields.io/badge/ReadyMedia%20License-GPL--2.0-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
-
 ---
 
 ## Как это работает

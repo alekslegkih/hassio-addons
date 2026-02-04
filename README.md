@@ -1,12 +1,5 @@
 # Legkih Add-on for Home Assistant
 
-## Зачем
-
-Иногда возникает необходимость в чем то таком, что нет в официальных репозиториях,
-и пришлось попробовать что то сделать для себя лично.  
-Код может быть неоптимизирован или написан коряво.  
-Но цель достигнута, аддоны выполняют свои функции.  
-
 ## Автоматическая установка (рекомендуется)
 
 Чтобы добавить этот репозиторий в Home Assistant, нажмите кнопку ниже:
@@ -27,7 +20,8 @@
 и выберите пункт <kbd>Репозитории</kbd>.  
 В появившемся окне вставьте ссылку на этот репозиторий и нажмите <kbd>Добавить</kbd>:
 
-```htm
+```html
+
 https://github.com/alekslegkih/hassio-addons
 ```
 
@@ -35,10 +29,11 @@ https://github.com/alekslegkih/hassio-addons
 
 ## Список аддонов в этом репозитории
 
+[nc_user_files_backup](https://github.com/alekslegkih/hassio-addons/tree/main/nc_user_files_backup)
+ — Автоматическое резервное копирование файлов пользователей Nextcloud на внешний USB-диск  
 [Ntfy server](https://github.com/alekslegkih/hassio-addons/tree/main/ntfy-server)
  — Обёртка над официальным сервером [ntfy](https://ntfy.sh)  
 [Gotify server](https://github.com/alekslegkih/hassio-addons/tree/main/gotify-server)
  — Обёртка над официальным сервером [Gotify](https://github.com/gotify/server)  
 [Simple dlna](https://github.com/alekslegkih/hassio-addons/tree/main/simple-dlna)
- — Обёртка над официальным сервером [ReadyMedia](https://sourceforge.net/projects/minidlna/) 
-
+ — Обёртка над официальным сервером [ReadyMedia](https://sourceforge.net/projects/minidlna/)  
